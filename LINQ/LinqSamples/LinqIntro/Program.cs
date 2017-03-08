@@ -59,7 +59,6 @@ namespace LinqIntro
             WriteLine();
         }
 
-
         static void LINQQuery()
         {
             var query = from r in Formula1.GetChampions()

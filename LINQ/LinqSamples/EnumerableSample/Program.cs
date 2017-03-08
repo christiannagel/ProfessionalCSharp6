@@ -455,15 +455,6 @@ namespace EnumerableSample
             }
         }
 
-        static void CrossJoinWithGroupJoin()
-        {
-            //  var q =
-            //from c in categories
-            //join p in products on c equals p.Category into ps
-            //from p in ps
-            //select new { Category = c, p.ProductName }; 
-
-        }
 
         static void LeftOuterJoin()
         {
@@ -501,7 +492,6 @@ namespace EnumerableSample
                 WriteLine($"{item.Year}: {item.Champion,-20} {item.Constructor}");
             }
         }
-
 
         static void GroupingWithNestedObjects()
         {
@@ -660,5 +650,4 @@ namespace EnumerableSample
             }
         }
     }
-
 }
