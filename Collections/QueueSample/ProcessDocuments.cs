@@ -4,33 +4,27 @@ using static System.Console;
 
 namespace QueueSample
 {
-  public class ProcessDocuments
-  {
-    public static void StartAsync(DocumentManager dm)
+    public class ProcessDocuments
     {
-      Task.Run(new ProcessDocuments(dm).Run);
-    }
+        public static void StartAsync(DocumentManager dm) =>
+            Task.Run(new ProcessDocuments(dm).Run);
 
-    protected ProcessDocuments(DocumentManager dm)
-    {
-      if (dm == null)
-        throw new ArgumentNullException("dm");
-      _documentManager = dm;
-    }
+        protected ProcessDocuments(DocumentManager dm) =>
+            _documentManager = dm ?? throw new ArgumentNullException(nameof(dm));
 
-    private DocumentManager _documentManager;
+        private readonly DocumentManager _documentManager;
 
-    protected async Task Run()
-    {
-      while (true)
-      {
-        if (_documentManager.IsDocumentAvailable)
+        protected async Task Run()
         {
-          Document doc = _documentManager.GetDocument();
-          WriteLine("Processing document {0}", doc.Title);
+            while (true)
+            {
+                if (_documentManager.IsDocumentAvailable)
+                {
+                    Document doc = _documentManager.GetDocument();
+                    WriteLine($"Processing document {doc.Title}");
+                }
+                await Task.Delay(new Random().Next(20));
+            }
         }
-        await Task.Delay(new Random().Next(20));
-      }
     }
-  }
 }

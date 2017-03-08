@@ -21,11 +21,9 @@ namespace ListSamples
                new Racer(21, "Alain", "Prost", "France", 51)});
 
             // insert elements
-
             racers.Insert(3, new Racer(6, "Phil", "Hill", "USA", 3));
 
             // accessing elements
-
             for (int i = 0; i < racers.Count; i++)
             {
                 WriteLine(racers[i]);
@@ -49,15 +47,11 @@ namespace ListSamples
 
             WriteLine();
 
-
             // remove elements
-
             if (!racers.Remove(graham))
             {
                 WriteLine("object not found in collection");
             }
-
-
 
             var racers2 = new List<Racer>(new Racer[] {
                new Racer(12, "Jochen", "Rindt", "Austria", 6),

@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using static System.Console;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Wrox.ProCSharp.Collections
 {
@@ -16,30 +16,26 @@ namespace Wrox.ProCSharp.Collections
 
             foreach (KeyValuePair<string, string> book in books)
             {
-                WriteLine($"{book.Key}, {book.Value}");
+                Console.WriteLine($"{book.Key}, {book.Value}");
             }
 
             foreach (string isbn in books.Values)
             {
-                WriteLine(isbn);
+                Console.WriteLine(isbn);
             }
 
             foreach (string title in books.Keys)
             {
-                WriteLine(title);
+                Console.WriteLine(title);
             }
 
             {
-                string isbn;
                 string title = "Professional C# 7.0";
-                if (!books.TryGetValue(title, out isbn))
+                if (!books.TryGetValue(title, out string isbn))
                 {
-                    WriteLine($"{title} not found");
+                    Console.WriteLine($"{title} not found");
                 }
             }
-
-
-
         }
     }
 }

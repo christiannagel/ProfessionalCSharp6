@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace QueueSample
+﻿namespace QueueSample
 {
-  public class Document
+    public class Document
   {
     public Document(string title, string content)
     {

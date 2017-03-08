@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using static System.Console;
+﻿using System;
+using System.Collections.Generic;
 
 namespace StackSample
 {
@@ -12,21 +12,19 @@ namespace StackSample
             alphabet.Push('B');
             alphabet.Push('C');
 
-            Write("First iteration: ");
+            Console.Write("First iteration: ");
             foreach (char item in alphabet)
             {
-                Write(item);
+                Console.Write(item);
             }
-            WriteLine();
+            Console.WriteLine();
 
-            Write("Second iteration: ");
+            Console.Write("Second iteration: ");
             while (alphabet.Count > 0)
             {
-                Write(alphabet.Pop());
+                Console.Write(alphabet.Pop());
             }
-            WriteLine();
-
-
+            Console.WriteLine();
         }
     }
 }

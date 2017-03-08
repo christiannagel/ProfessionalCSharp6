@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace LinkedListSample
+﻿namespace LinkedListSample
 {
-  class Program
+    class Program
   {
     static void Main()
     {
-      PriorityDocumentManager pdm = new PriorityDocumentManager();
+      var pdm = new PriorityDocumentManager();
       pdm.AddDocument(new Document("one", "Sample", 8));
       pdm.AddDocument(new Document("two", "Sample", 3));
       pdm.AddDocument(new Document("three", "Sample", 4));
@@ -17,7 +15,6 @@ namespace LinkedListSample
       pdm.AddDocument(new Document("eight", "Sample", 1));
 
       pdm.DisplayAllNodes();
-
     }
   }
 }

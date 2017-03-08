@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using static System.Console;
 
 namespace Wrox.ProCSharp.Collections
 {
@@ -34,13 +33,13 @@ namespace Wrox.ProCSharp.Collections
 
             foreach (var employee in employees.Values)
             {
-                WriteLine(employee);
+                Console.WriteLine(employee);
             }
 
             while (true)
             {
-                Write("Enter employee id (X to exit)> ");
-                var userInput = ReadLine();
+                Console.Write("Enter employee id (X to exit)> ");
+                var userInput = Console.ReadLine();
                 userInput = userInput.ToUpper();
                 if (userInput == "X") break;
 
@@ -49,23 +48,21 @@ namespace Wrox.ProCSharp.Collections
                 {
                     id = new EmployeeId(userInput);
 
-
                     Employee employee;
                     if (!employees.TryGetValue(id, out employee))
                     {
-                        WriteLine("Employee with id {0} does not exist", id);
+                        Console.WriteLine($"Employee with id {id} does not exist");
                     }
                     else
                     {
-                        WriteLine(employee);
+                        Console.WriteLine(employee);
                     }
                 }
                 catch (EmployeeIdException ex)
                 {
-                    WriteLine(ex.Message);
+                    Console.WriteLine(ex.Message);
                 }
             }
-
         }
     }
 }
