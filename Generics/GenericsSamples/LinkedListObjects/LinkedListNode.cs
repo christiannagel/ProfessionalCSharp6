@@ -1,17 +1,12 @@
-﻿
-namespace Wrox.ProCSharp.Generics
+﻿namespace Wrox.ProCSharp.Generics
 {
-  public class LinkedListNode
-  {
-    public LinkedListNode(object value)
+    public class LinkedListNode
     {
-      Value = value;
+        public LinkedListNode(object value) => Value = value;
+
+        public object Value { get; }
+
+        public LinkedListNode Next { get; internal set; }
+        public LinkedListNode Prev { get; internal set; }
     }
-
-    public object Value { get; }
-
-    public LinkedListNode Next { get; internal set; }
-    public LinkedListNode Prev { get; internal set; }
-  }
-
 }
