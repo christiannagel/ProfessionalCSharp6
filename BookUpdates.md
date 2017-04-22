@@ -188,6 +188,26 @@ public static MySafe InitProtection()
 }
 ```
 
+## Chapter 25 - Networking
+
+Page 714, the WebLister changed
+
+The UrlPrefixes need to be added using the Settings property:
+
+```csharp
+foreach (var prefix in prefixes)
+{
+  listener.Settings.UrlPrefixes.Add(prefix);
+  WriteLine($"\t{prefix}");
+}
+```
+
+Instead of invoking GetContextAsync, invoke AcceptAsync:
+
+```csharp
+RequestContext context = await listener.AcceptAsync()
+```
+
 ## Chapter 27 - XML and JSON
 
 Page 812, the Load method of the XDocument class supports only loading of local files (the .NET Framework version of this method supports loading files from HTTP servers as well). The sample code for the `QueryFeed` method needs to be changed. The HttpClient class is used to make a HTTP GET requests to return a stream. The stream is passed to the XDocument.Load method:
@@ -337,6 +357,10 @@ public Startup(IHostingEnvironment env)
 Page 1252 Figure Update, Figure 40-18
 
 ![Figure 40-18](https://github.com/ProfessionalCSharp/ProfessionalCSharp6/blob/master/FigureUpdates/Fig40_18.png "Fig 40-18")
+
+Page 1253 - API Change AddUserSecrets
+
+AddUserSecrets() API changed from `AddUserSecrets()` to `AddUserSecrets<Startup>()`. The generic version is already available with .NET Core 1.0, the non-generic version is now obsolete. See [UserSecrets: Obsolete APIs](https://github.com/aspnet/Announcements/issues/223 "UserSecrets changes")
 
 ## Chapter 41 - ASP.NET MVC
 
